@@ -29,7 +29,19 @@ const config: Core.Config.Middlewares = [
       },
     },
   },
-  "strapi::cors",
+  {
+    name: "strapi::cors",
+    config: {
+      origin: [
+        "https://home-nest-six.vercel.app",
+        "http://localhost:5173",
+        "http://localhost:3000",
+      ],
+      methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
+      headers: ["Content-Type", "Authorization", "Origin", "Accept"],
+      keepHeaderOnError: true,
+    },
+  },
   "strapi::poweredBy",
   "strapi::query",
   "strapi::body",
